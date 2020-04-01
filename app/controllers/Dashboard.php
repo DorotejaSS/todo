@@ -12,8 +12,7 @@ class Dashboard extends Controller
         if (!empty($_SESSION['user_data'])) {
             self::$view_data[] = $this->personalDashboard();
             self::loadView('main', self::$view_data);
-            var_dump(self::$view_data);
-            var_dump($_POST);
+            $this->update();
         } else {
             header('Location: /todo/public/login');
         }
@@ -32,14 +31,23 @@ class Dashboard extends Controller
         $priority = $_POST['priority'] ?? false;
         $model= new Todo();
         $model->createNewTask($new_task, $priority);
-        return;
+    }
+
+    public function checkTask()
+    {
+        $tasks = $_POST['checkbox'];
+        $model = new Todo();
+        $model->taskToBeChecked($tasks);
     }
 
     public function update()
     {
-        if (!empty($_POST['submit'])) {
+        if (!empty($_POST['task'])) {
             $this->addNewTask();
         }
 
+        if (!empty($_POST['checkbox'])) {
+            $this->checkTask();
+        }
     }
 }
