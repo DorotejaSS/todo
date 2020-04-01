@@ -49,6 +49,8 @@
                 <?php endforeach; ?>
 
                 <input type="submit" name="submit" value="Submit">
+                <input type="submit" name="delete" value="Delete">
+
             </form>
 
         <form action="/todo/public/logout" method="post">

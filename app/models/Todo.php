@@ -34,4 +34,12 @@ class Todo extends Database
             $sql->execute();
         }
     }
+
+    public function taskToBeRemoved($tasks)
+    {
+        foreach ($tasks as $task_id) {
+            $sql = $this->conn->prepare('delete from tasks where id = '.$task_id.';');
+            $sql->execute();
+        }
+    }
 }

@@ -40,6 +40,13 @@ class Dashboard extends Controller
         $model->taskToBeChecked($tasks);
     }
 
+    public function removeTask()
+    {
+        $tasks = $_POST['checkbox'];
+        $model = new Todo();
+        $model->taskToBeRemoved($tasks);
+    }
+
     public function update()
     {
         if (!empty($_POST['task'])) {
@@ -48,6 +55,10 @@ class Dashboard extends Controller
 
         if (!empty($_POST['checkbox'])) {
             $this->checkTask();
+        }
+
+        if (!empty($_POST['delete']) && !empty($_POST['checkbox'])) {
+            $this->removeTask();
         }
     }
 }
