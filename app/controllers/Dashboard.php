@@ -4,9 +4,7 @@ class Dashboard extends Controller
 {
     public function __construct()
     {
-        // if (!empty($_POST['Submit'])) {
-        //     $this->addNewTask();
-        // }
+
     }
 
     public function checkStatus()
@@ -14,6 +12,8 @@ class Dashboard extends Controller
         if (!empty($_SESSION['user_data'])) {
             self::$view_data[] = $this->personalDashboard();
             self::loadView('main', self::$view_data);
+            var_dump(self::$view_data);
+            var_dump($_POST);
         } else {
             header('Location: /todo/public/login');
         }
@@ -32,5 +32,14 @@ class Dashboard extends Controller
         $priority = $_POST['priority'] ?? false;
         $model= new Todo();
         $model->createNewTask($new_task, $priority);
+        return;
+    }
+
+    public function update()
+    {
+        if (!empty($_POST['submit'])) {
+            $this->addNewTask();
+        }
+
     }
 }
