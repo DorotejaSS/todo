@@ -26,4 +26,12 @@ class Todo extends Database
         values (?, ?, ?)');
         $sql->execute(array($id, $new_task, $priority));
     }
+
+    public function taskToBeChecked($tasks)
+    {
+        foreach ($tasks as $task_id) {
+            $sql = $this->conn->prepare('update tasks set done = "'.true.'" WHERE id = "'.$task_id.'"');
+            $sql->execute();
+        }
+    }
 }

@@ -41,7 +41,7 @@
                             }
                         ?>
                         <?php var_dump($value); ?>
-                        <input <?=$class?> type="checkbox" name="task" value="<?=$value['id']?>"
+                        <input <?=$class?> type="checkbox" name="checkbox[]" value="<?=$value['id']?>"
                         <?php echo ($value['done'] == true) ? 'checked' : '' ?>>
                         <label for="<?=$value['id']?>"> <?=$value['task']?></label><br>
 
@@ -56,3 +56,4 @@
         </form>
     </body>
 </html>
+
