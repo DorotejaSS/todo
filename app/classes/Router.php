@@ -1,22 +1,15 @@
 <?php
 
-include 'Request.php';
-
 class Router
 {
-    public $request;
-    public $valid_routes = [];
+    public static $valid_routes = [];
 
-    public function __construct()
+    public static function set($route, $function)
     {
-        $this->request = new Request();
-    }
-    public function set($route, $function)
-    {
-        $this->$valid_routes[] = $route;
+        self::$valid_routes[] = $route;
 
         if ($_GET['url'] == $route) {
-            $function->__invoke($this->request);
+            $function->__invoke();
         }
     }
 }

@@ -4,7 +4,7 @@ class Login extends BaseController
 {
     public function __construct($req)
     {
-        parent::__contruct($req);
+        parent::__construct($req);
         self::login();
     }
 
