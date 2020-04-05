@@ -4,6 +4,7 @@ class Registration extends Controller
 {
     public function __construct()
     {
+        parent::__contruct();
         $this->registrate();
     }
 

@@ -1,10 +1,7 @@
 <?php
 
-class Dashboard extends Controller
+class Dashboard extends BaseController
 {
-    public function __construct()
-    {
-    }
 
     public function checkStatus()
     {
