@@ -1,6 +1,6 @@
 <?php
 
-class Registration extends Controller
+class Registration extends BaseController
 {
     public function __construct($req)
     {
