@@ -40,12 +40,12 @@
                     <?php foreach ($view_data as $data) : ?>
                         <?php foreach ($data as $key => $value) : ?>
                             <?php if ($value['priority'] == 'low') {
-                    $class = 'class="yellow"';
-                } elseif ($value['priority'] == 'medium') {
-                    $class = 'class="orange"';
-                } elseif ($value['priority'] == 'high') {
-                    $class = 'class="red"';
-                }
+									$class = 'class="yellow"';
+								} elseif ($value['priority'] == 'medium') {
+									$class = 'class="orange"';
+								} elseif ($value['priority'] == 'high') {
+									$class = 'class="red"';
+								}
                             ?>
 
                             <input <?=$class?> type="checkbox" name="checkbox[]" value="<?=$value['id']?>">
