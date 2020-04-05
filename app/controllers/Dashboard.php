@@ -1,17 +1,12 @@
 <?php
 
-class Dashboard extends BaseController
+class Dashboard extends Authorization
 {
 
-    public function checkStatus()
+    public function displayList()
     {
-        if (!empty($_SESSION['user_data'])) {
-            self::$view_data[] = $this->personalDashboard();
-            self::loadView('main', self::$view_data);
-            $this->update();
-        } else {
-            header('Location: /todo/public/login');
-        }
+        self::$view_data[] = $this->personalDashboard();
+        self::loadView('main', self::$view_data);
     }
 
     public function personalDashboard()
@@ -56,5 +51,7 @@ class Dashboard extends BaseController
         if (!empty($_POST['delete']) && !empty($_POST['checkbox'])) {
             $this->removeTask();
         }
+
+        header('Location: /todo/public/dashboard');
     }
 }

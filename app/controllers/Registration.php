@@ -2,9 +2,9 @@
 
 class Registration extends Controller
 {
-    public function __construct()
+    public function __construct($req)
     {
-        parent::__contruct();
+        parent::__contruct($req);
         $this->registrate();
     }
 

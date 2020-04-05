@@ -14,11 +14,16 @@ $router->set('registration', function () {
 
 $router->set('dashboard', function () {
     $dashboard = new Dashboard();
-    $dashboard->checkStatus();
+    $dashboard->displayList();
+});
+
+$router->set('dashboard-update', function () {
+    $dashboard = new Dashboard();
+    $dashboard->update();
 });
 
 $router->set('logout', function () {
-    Login::loadView('logout');
-    Login::logout();
     session_destroy();
+    Login::logout();
+    Login::loadView('logout');
 });
