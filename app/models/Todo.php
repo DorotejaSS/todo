@@ -4,7 +4,7 @@ class Todo extends Database
 {
     public function userDashboard($user_id)
     {
-        $sql = $this->conn->prepare('select * from tasks where user_id = ?');
+        $sql = $this->conn->prepare('select * from tasks where user_id = ? order by id desc');
         $sql->execute(array($user_id));
 
 

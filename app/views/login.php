@@ -3,23 +3,29 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="./assets/main.css"/>
+        <link rel="stylesheet" type="text/css" href="../app/views/main.css">
         <title>Document</title>
     </head>
     <body>
-        <form action="" method="post">
-            <div class="loginbox">
-                <label for="username">username:</label>
-                <input type="text" name="username" required>
+        <h1> LOGIN </h1>
+        <div class="loginbox">
+            <form action="" method="post">
+                <div>
+                    <label for="username">username:</label>
+                    <input type="text" name="username" required>
+                </div>
+                <br>
+                <div>
+                    <label for="password">password:</label>
+                    <input type="password" name="password" required>
+                </div>
 
-                <label for="password">password:</label>
-                <input type="password" name="password" required>
+                <input class="loginbtn" type="submit" name="Login" value="Login">
+            </form>
+            <form action="/todo/public/registration" method="post">
+                <input class="registerbtn" type="submit" name="register" value="Register">
+            </form>
+        </div>
 
-                <input class = "loginbtn" type="submit" name="Login" value="Login">
-            </div>
-        </form>
-        <form action="/todo/public/registration" method="post">
-            <button name="register" type="submit" value="register">Register</button>
-        </form>
     </body>
 </html>

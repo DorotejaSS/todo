@@ -4,7 +4,6 @@ class Dashboard extends Controller
 {
     public function __construct()
     {
-
     }
 
     public function checkStatus()
@@ -49,7 +48,7 @@ class Dashboard extends Controller
 
     public function update()
     {
-        if (!empty($_POST['task'])) {
+        if (!empty($_POST['task']) && !empty($_POST['submit'])) {
             $this->addNewTask();
         }
 

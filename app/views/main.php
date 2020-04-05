@@ -3,16 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../app/views/main.css">
         <title>Document</title>
         <style>
         .yellow + label {
             background-color: yellow;
+            color: black;
             }
         .orange + label {
             background-color: orange;
+            color:black;
             }
         .red + label {
             background-color: red;
+            color:black;
             }
         </style>
     </head>
@@ -30,26 +34,30 @@
                 <label for="priority"> High </label>
                 <br>
 
-                <?php foreach ($view_data as $data) : ?>
-                    <?php foreach ($data as $key => $value) : ?>
-                        <?php if ($value['priority'] == 'low') {
-                                $class = 'class="yellow"';
-                            } elseif ($value['priority'] == 'medium') {
-                                $class = 'class="orange"';
-                            } elseif ($value['priority'] == 'high') {
-                                $class = 'class="red"';
-                            }
-                        ?>
-                        <?php var_dump($value); ?>
-                        <input <?=$class?> type="checkbox" name="checkbox[]" value="<?=$value['id']?>"
-                        <?php echo ($value['done'] == true) ? 'checked' : '' ?>>
-                        <label for="<?=$value['id']?>"> <?=$value['task']?></label><br>
+                <?php
 
+                if (!empty($view_data)) : ?>
+                    <?php foreach ($view_data as $data) : ?>
+                        <?php foreach ($data as $key => $value) : ?>
+                            <?php if ($value['priority'] == 'low') {
+                    $class = 'class="yellow"';
+                } elseif ($value['priority'] == 'medium') {
+                    $class = 'class="orange"';
+                } elseif ($value['priority'] == 'high') {
+                    $class = 'class="red"';
+                }
+                            ?>
+
+                            <input <?=$class?> type="checkbox" name="checkbox[]" value="<?=$value['id']?>">
+                            <label for="<?=$value['id']?>"> <?=($value['done'] == true) ? '<del>'.$value['task'].'</del>' : $value['task'] ?></label><br>
+
+                        <?php endforeach; ?>
                     <?php endforeach; ?>
-                <?php endforeach; ?>
+                <?php endif; ?>
 
-                <input type="submit" name="submit" value="Submit">
+
                 <input type="submit" name="delete" value="Delete">
+                <input type="submit" name="submit" value="Submit">
 
             </form>
 

@@ -1,0 +1,83 @@
+h1 {
+    color: red;
+}
+
+.loginbox {
+    margin-left: 500px;
+    display: inline-block;
+    background-color: #0f0d4c;
+    box-sizing: border-box;
+    width: 30%;
+    overflow: auto;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 3px 4px 14px 4px #888888;
+}
+
+.registerbox {
+    margin-left: 500px;
+    display: inline-block;
+    background-color: #0f0d4c;
+    box-sizing: border-box;
+    width: 30%;
+    overflow: auto;
+    padding: 10px;
+    box-shadow: 3px 4px 14px 4px #888888;
+}
+
+.loginbox label, .registerbox label {
+    color: cornsilk;
+}
+
+.registerbtn {
+    background-color: red;
+    color: white;
+    padding: 10px 40px 10px 30px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+body {
+    color: cornsilk;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../views/wallpaper.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.loginbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 40px 10px 30px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.loginbtn:hover, .registerbtn:hover {
+  opacity: 0.8;
+}
+
+.name {
+    margin-left: 32px;
+}
+
+.username {
+    margin-left: 1px;
+}
+
+.password {
+    margin-left: 4px;
+}
+
+.email {
+    margin-left: 33px;
+}
+
+
+
