@@ -1,24 +1,29 @@
 <?php
 
-new Router();
+$router = new Router();
 
-Router::set('login', function () {
+$router->set('login', function () {
     Login::loadView('login');
     new Login();
 });
 
-Router::set('registration', function () {
+$router->set('registration', function () {
     Registration::loadView('registration');
     new Registration();
 });
 
-Router::set('dashboard', function () {
+$router->set('dashboard', function () {
     $dashboard = new Dashboard();
-    $dashboard->checkStatus();
+    $dashboard->displayList();
 });
 
-Router::set('logout', function () {
-    Login::loadView('logout');
-    Login::logout();
+$router->set('dashboard-update', function () {
+    $dashboard = new Dashboard();
+    $dashboard->update();
+});
+
+$router->set('logout', function () {
     session_destroy();
+    Login::logout();
+    Login::loadView('logout');
 });

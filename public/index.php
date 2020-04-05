@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include_once('Routes.php');
+include_once('routes.php');
 
 function __autoload($class_name) {
     if (file_exists('../app/classes/'.$class_name.'.php')) {

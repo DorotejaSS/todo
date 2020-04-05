@@ -1,9 +1,10 @@
 <?php
 
-class Registration extends Controller
+class Registration extends BaseController
 {
-    public function __construct()
+    public function __construct($req)
     {
+        parent::__contruct($req);
         $this->registrate();
     }
 

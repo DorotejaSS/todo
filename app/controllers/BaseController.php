@@ -1,8 +1,13 @@
 <?php
 
-class Controller
+class BaseController
 {
     public static $view_data = [];
+
+    public function __construct($req)
+    {
+    	$this->req = $req;
+    }
 
     public static function loadView($view_name, $view_data = null)
     {

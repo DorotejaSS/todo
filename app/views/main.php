@@ -23,7 +23,7 @@
     <body>
         <h1>MAIN</h1>
         <?php $view_data = self::$view_data; ?>
-            <form action="" method="post">
+            <form action="dashboard-update" method="post">
                 <label for="task">new task: </label>
                 <input type="text" name="task">
                 <input type="checkbox" name="priority" value="low">
