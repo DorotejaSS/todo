@@ -2,7 +2,7 @@
 
 class Todo extends Database
 {
-    $table = 'tasks';
+    private $table = 'tasks';
 
     public function userDashboard($user_id)
     {

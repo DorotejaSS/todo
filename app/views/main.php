@@ -23,7 +23,7 @@
     <body>
         <h1>MAIN</h1>
         <?php $view_data = self::$view_data; ?>
-            <form action="" method="post">
+            <form action="dashboard-update" method="post">
                 <label for="task">new task: </label>
                 <input type="text" name="task">
                 <input type="checkbox" name="priority" value="low">
@@ -40,12 +40,12 @@
                     <?php foreach ($view_data as $data) : ?>
                         <?php foreach ($data as $key => $value) : ?>
                             <?php if ($value['priority'] == 'low') {
-                    $class = 'class="yellow"';
-                } elseif ($value['priority'] == 'medium') {
-                    $class = 'class="orange"';
-                } elseif ($value['priority'] == 'high') {
-                    $class = 'class="red"';
-                }
+									$class = 'class="yellow"';
+								} elseif ($value['priority'] == 'medium') {
+									$class = 'class="orange"';
+								} elseif ($value['priority'] == 'high') {
+									$class = 'class="red"';
+								}
                             ?>
 
                             <input <?=$class?> type="checkbox" name="checkbox[]" value="<?=$value['id']?>">

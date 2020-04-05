@@ -1,9 +1,10 @@
 <?php
 
-class Login extends Controller
+class Login extends BaseController
 {
-    public function __construct()
+    public function __construct($req)
     {
+        parent::__construct($req);
         self::login();
     }
 
