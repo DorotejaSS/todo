@@ -16,9 +16,8 @@ class Todo extends Database
                 $tasks[] = $row;
             }
             return $tasks;
-        } else {
-            echo 'You don\'t have any task yet.';
         }
+        echo 'You don\'t have any task yet.';
     }
 
     public function createNewTask($new_task, $priority)
