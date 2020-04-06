@@ -26,11 +26,11 @@
             <form action="dashboard-update" method="post">
                 <label for="task">new task: </label>
                 <input type="text" name="task">
-                <input type="checkbox" name="priority" value="low">
+                <input type="radio" name="priority" value="low" checked>
                 <label for="priority"> Low </label>
-                <input type="checkbox" name="priority" value="medium">
+                <input type="radio" name="priority" value="medium">
                 <label for="priority"> Medium </label>
-                <input type="checkbox" name="priority" value="high">
+                <input type="radio" name="priority" value="high">
                 <label for="priority"> High </label>
                 <br>
 

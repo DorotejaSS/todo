@@ -12,6 +12,3 @@ function __autoload($class_name) {
         require_once '../app/models/'.$class_name.'.php';
     }
 }
-
-
-

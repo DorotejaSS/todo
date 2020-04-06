@@ -4,17 +4,24 @@ class Login extends BaseController
 {
     public function __construct($req)
     {
-        parent::__construct($req);
-        self::login();
+        $this->req = $req;
+        // parent::__construct($req);
+
+        $this->login();
     }
 
-    public static function login()
+    public function displayLogin()
+    {
+        $this->loadView('login');
+    }
+
+    public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'] ?? null;
-            $pass = $_POST['password'] ?? null;
+            $username = $this->req->post['username'] ?? null;
+            $pass = $this->req->post['password'] ?? null;
 
-            if ($username != null && $pass != null && isset($_POST['Login'])) {
+            if ($username != null && $pass != null && isset($this->req->post['Login'])) {
                 $model = new User();
                 if ($model->checkIfExists($username, $pass)) {
                     $id = (int)$_SESSION['user_data']['id'];
@@ -27,11 +34,13 @@ class Login extends BaseController
         }
     }
 
-    public static function logout()
+    public function logout()
     {
         $id = (int)$_SESSION['user_data']['id'] ?? null;
+        session_destroy();
         $model = new User();
         $model->changeStatusToNotActive($id);
+        $this->loadView('logout');
     }
 
 }

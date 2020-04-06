@@ -1,10 +1,10 @@
 <?php
 
-class Todo extends Database
+class Task extends Database
 {
     private $table = 'tasks';
 
-    public function userDashboard($user_id)
+    public function getUserTasks($user_id)
     {
         $sql = $this->conn->prepare('select * from '.$this->table.' where user_id = ? order by id desc');
         $sql->execute(array($user_id));

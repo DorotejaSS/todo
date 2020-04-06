@@ -4,12 +4,15 @@ class Router
 {
     public static $valid_routes = [];
 
-    public static function set($route, $function)
+    public function setRoute($route, $class_name, $method_name)
     {
+        $request = new Request();
+
         self::$valid_routes[] = $route;
 
-        if ($_GET['url'] == $route) {
-            $function->__invoke();
+        if ($request->url[2] == $route) {
+            $controller = new $class_name($request);
+            $controller->$method_name();
         }
     }
 }
