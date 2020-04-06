@@ -4,6 +4,7 @@ class TaskController extends Authorization
 {
     public function __construct($req)
     {
+        parent::__construct($req);
         $this->req = $req;
     }
 
