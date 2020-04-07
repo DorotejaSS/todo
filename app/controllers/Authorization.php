@@ -9,7 +9,5 @@ class Authorization extends BaseController
 		if (empty($_SESSION['user_data'])) {
 			header('Location: /todo/public/login');
 		}
-
-
     }
 }

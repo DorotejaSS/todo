@@ -7,7 +7,6 @@ class Router
     public function setRoute($route, $class_name, $method_name)
     {
         $request = new Request();
-
         self::$valid_routes[] = $route;
 
         if ($request->url[2] == $route) {

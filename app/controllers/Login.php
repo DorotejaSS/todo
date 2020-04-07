@@ -42,5 +42,4 @@ class Login extends BaseController
         $model->changeStatusToNotActive($id);
         $this->loadView('logout');
     }
-
 }

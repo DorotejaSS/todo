@@ -26,6 +26,7 @@ class Database
         }
         return self::$instance;
     }
+
     public function getConnection()
     {
         return $this->conn;

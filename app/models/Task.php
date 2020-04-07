@@ -37,7 +37,7 @@ class Task extends Database
 
     public function getActiveTasks($datetime, $user_id)
     {
-        $sql = $this->conn->prepare('select * from '.$this->table.' WHERE "'.$datetime.'" between start_time and end_time and user_id = '.$user_id);
+        $sql = $this->conn->prepare('select * from '.$this->table.' WHERE "'.$datetime.'" between start_time and end_time and archived = 0 and user_id = '.$user_id);
         $sql->execute();
 
         if ($sql->rowCount() >= 1) {
