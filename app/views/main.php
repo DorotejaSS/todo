@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../app/views/css/main2.css">
-        <!-- <link rel="stylesheet" type="text/css" href="../app/views/css/util.css"> -->
-        <!-- <link rel="stylesheet" type="text/css" href="../app/views/css/main.css"> -->
         <title>Document</title>
         <style>
         .yellow + label {
@@ -26,7 +24,9 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Tasks</a>
+                <a class="navbar-brand" href="/todo/public/dashboard-active">Active Tasks</a>
+                <a class="navbar-brand" href="/todo/public/dashboard-archived">Archived Tasks</a>
                 <a class="navbar-brand" href="/todo/public/logout">Logout</a>
             </div>
         </nav>
@@ -37,6 +37,14 @@
                 <div class="col-3">
                     <label for="task">Task</label>
                     <input type="text" class="form-control"name="task">
+                </div>
+                <div class="col-3">
+                    <label for="birthday">Start:</label>
+                    <input type="date" name="start">
+                </div>
+                <div class="col-3">
+                    <label for="birthday">End:</label>
+                    <input type="date" name="end">
                 </div>
                 <div class="priority">
                     <div class="form-check">
@@ -86,7 +94,8 @@
                     <?php endforeach; ?>
                 <?php endif; ?>
 
-                <input class="btn btn-danger" type="submit" name="delete" value="Delete">
+                <input class="btn btn-danger" type="submit" name="archive" value="Archive">
+                <input class="btn btn-primary" type="submit" name="uncheck" value="Uncheck">
                 <input class="btn btn-success" type="submit" name="submit" value="Submit">
 
             </form>
