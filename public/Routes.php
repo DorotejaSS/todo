@@ -1,6 +1,9 @@
 <?php
 
-                // route,           controller      method
+/**
+ * Possible routes
+ */
+                // route, controller, method
 Router::setRoute('login', 'Login', 'displayLogin');
 Router::setRoute('registration', 'Registration', 'displayRegister');
 Router::setRoute('dashboard', 'TaskController', 'display');

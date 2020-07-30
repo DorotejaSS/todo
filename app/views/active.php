@@ -22,35 +22,45 @@
         </style>
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/todo/public/dashboard">Tasks</a>
+                <a class="navbar-brand" href="/todo/public/dashboard-active">Active Tasks</a>
+                <a class="navbar-brand" href="/todo/public/dashboard-archived">Archived Tasks</a>
+                <a class="navbar-brand" href="/todo/public/logout">Logout</a>
+            </div>
+        </nav>
         <?php $view_data = self::$view_data ?? []; ?>
         <form class="login100-form validate-form flex-sb flex-w" action="dashboard-update" method="post">
             <?php
             if (!empty($view_data)) : ?>
                 <?php foreach ($view_data as $data) : ?>
-                    <?php foreach ($data as $key => $value) : ?>
-                        <?php if ($value['priority'] == 'low') {
-                                $class = 'class="yellow"';
-                            } elseif ($value['priority'] == 'medium') {
-                                $class = 'class="orange"';
-                            } elseif ($value['priority'] == 'high') {
-                                $class = 'class="red"';
-                            }
-                            $class_d = "form-check-input";
-                        ?>
+                    <?php if (!empty($data)) : ?>
+                        <?php foreach ($data as $key => $value) : ?>
+                            <?php if ($value['priority'] == 'low') {
+                $class = 'class="yellow"';
+            } elseif ($value['priority'] == 'medium') {
+                $class = 'class="orange"';
+            } elseif ($value['priority'] == 'high') {
+                $class = 'class="red"';
+            }
+                                $class_d = "form-check-input";
+                            ?>
 
-                            <div class="form-check task">
-                                <input <?=$class.$class_d?> type="checkbox" name="checkbox[]" value="<?=$value['id']?>" id="defaultCheck1">
-                                <label class="form-check-label" for="<?=$value['id']?>">
-                                    <?=($value['done'] == true) ? '<del>'.$value['task'].'</del>' : $value['task'] ?>
-                                </label>
-                            </div>
+                                <div class="form-check task">
+                                    <input <?=$class.$class_d?> type="checkbox" name="checkbox[]" value="<?=$value['id']?>" id="defaultCheck1">
+                                    <label class="form-check-label" for="<?=$value['id']?>">
+                                        <?=($value['done'] == true) ? '<del>'.$value['task'].'</del>' : $value['task'] ?>
+                                    </label>
+                                </div>
 
 
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                        <input class="btn btn-danger" type="submit" name="archive" value="Archive">
+                        <input class="btn btn-primary" type="submit" name="uncheck" value="Uncheck">
+                        <input class="btn btn-success" type="submit" name="submit" value="Submit">
+                    <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
-            <input class="btn btn-danger" type="submit" name="archive" value="Archive">
-            <input class="btn btn-primary" type="submit" name="uncheck" value="Uncheck">
-            <input class="btn btn-success" type="submit" name="submit" value="Submit">
     </body>
 </html>

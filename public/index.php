@@ -1,9 +1,11 @@
 <?php
 
 session_start();
-include_once('routes.php');
+include_once('Routes.php');
 
-function __autoload($class_name) {
+// autoload all from /classes, /controllers, /models
+function __autoload($class_name)
+{
     if (file_exists('../app/classes/'.$class_name.'.php')) {
         require_once '../app/classes/'.$class_name.'.php';
     } elseif (file_exists('../app/controllers/'.$class_name.'.php')) {

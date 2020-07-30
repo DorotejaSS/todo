@@ -10,11 +10,19 @@ class Login extends BaseController
         $this->login();
     }
 
+    /**
+     * Rendering login view
+     */
     public function displayLogin()
     {
         $this->loadView('login');
     }
 
+    /**
+     * Checking for data from login from
+     * Check if user exists, if true change user status to active and log in
+     * @return header(Location)
+     */
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -34,6 +42,10 @@ class Login extends BaseController
         }
     }
 
+    /**
+     * Destroy session, change user status to active(false)
+     * Rendering logout view
+     */
     public function logout()
     {
         $id = (int)$_SESSION['user_data']['id'] ?? null;
