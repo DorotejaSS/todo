@@ -31,7 +31,7 @@
             </div>
         </nav>
 
-        <div style="background-image: url('../app/views/images/bg-01.jpg'); background-size:cover">
+        <div style="background-image: url('../app/views/images/bg-01.jpg'); background-size:cover; height:100vh;">
             <?php $view_data = self::$view_data; ?>
             <form class="login100-form validate-form flex-sb flex-w" action="dashboard-update" method="post">
                 <div class="col-3">
